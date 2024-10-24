@@ -14,7 +14,6 @@ const MESSAGES = {
   c: "Winner, chicken dinner.",
 };
 
-
 module.exports = {
   IP,
   PORT,
