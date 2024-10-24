@@ -1,3 +1,14 @@
+const { 
+  MOVE_UP_KEY,
+  MOVE_LEFT_KEY,
+  MOVE_DOWN_KEY,
+  MOVE_RIGHT_KEY,
+  MOVE_LEFT_ARROW_KEY,
+  MOVE_UP_ARROW_KEY,
+  MOVE_RIGHT_ARROW_KEY,
+  MOVE_DOWN_ARROW_KEY,
+  MESSAGES,} = require("./constants");
+
 let connection;
 
 // Handle the key presses
@@ -7,21 +18,26 @@ const handleUserInput = function (key) {
     case "\u0003":
       process.exit();
       break;
-    case "a":
-    case "\u001b[D":   // Left Arrow Key
+    case MOVE_LEFT_KEY:
+    case MOVE_LEFT_ARROW_KEY:   // Left Arrow Key
       connection.write("Move: left");
       break;
-    case "w":
-    case "\u001b[A":   // Up Arrow Key
+    case MOVE_UP_KEY:
+    case MOVE_UP_ARROW_KEY:   // Up Arrow Key
       connection.write("Move: up");
       break;
-    case "d":
-    case "\u001b[C":   // Right Arrow Key
+    case MOVE_RIGHT_KEY:
+    case MOVE_RIGHT_ARROW_KEY:   // Right Arrow Key
       connection.write("Move: right");
       break;
-    case "s":
-    case "\u001b[B":   // Down Arrow Key
+    case MOVE_DOWN_KEY:
+    case MOVE_DOWN_ARROW_KEY:   // Down Arrow Key
       connection.write("Move: down");
+      break;
+    default:
+      if (MESSAGES[key]) {
+        connection.write("Say: " + MESSAGES[key])
+      }
       break;
   }
 };
