@@ -1,4 +1,4 @@
-const { 
+const {
   MOVE_UP_KEY,
   MOVE_LEFT_KEY,
   MOVE_DOWN_KEY,
@@ -12,7 +12,7 @@ const {
 let connection;
 
 // Handle the key presses
-const handleUserInput = function (key) {
+const handleUserInput = function(key) {
   // \u0003 maps to ctrl+c input
   switch (key) {
     case "\u0003":
@@ -36,14 +36,14 @@ const handleUserInput = function (key) {
       break;
     default:
       if (MESSAGES[key]) {
-        connection.write("Say: " + MESSAGES[key])
+        connection.write("Say: " + MESSAGES[key]);
       }
       break;
   }
 };
 
 // setup interface to handle user input from stdin
-const setupInput = function (conn) {
+const setupInput = function(conn) {
   connection = conn;
 
   const stdin = process.stdin;  // create variable to hold the stdin object so we don't have to type process.stdin multiple times
