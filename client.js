@@ -25,15 +25,7 @@ const connect = function() {
     // setTimeout(() => {
     //   conn.write("Move: up");
     // }, 50);
-
-    // setTimeout(() => {
-    //   conn.write("Move: up");
-    // }, 50);
   });
-
-  // conn.on("connect", () => {
-  //   conn.write("Move: up");
-  // });
 
   return conn;
 };
